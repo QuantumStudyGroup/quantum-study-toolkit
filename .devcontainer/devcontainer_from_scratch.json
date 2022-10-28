@@ -2,12 +2,9 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.245.2/containers/jupyter-datascience-notebooks
 {
     "name": "Quantum Computing Container",
-    "image": "fullofentropy/quantum-study-toolkit",
-    // image above is built by https://github.com/QuantumStudyGroup/container-stacker
-    // you can comment out "image" and uncomment below to customize more if you need
-    // "build": {
-    //     "dockerfile": "Dockerfile"
-    // },
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
     "overrideCommand": false,
     
     // Forward Jupyter port locally, mark required

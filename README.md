@@ -28,7 +28,7 @@ There are two ways to us this set:
 
 1. Inside VSCODE
    - Raw python coding
-   - Jupyter notebooks extentiosn.
+   - Jupyter notebooks extension.
 
 2. Using Jupyter Notebooks webgui
     - After the container is up and running 
@@ -58,3 +58,8 @@ fatal: Unsupported SSL backend 'schannel'. Supported SSL backends:
 
 Unsupported SSL backend is likely using Docker Desktop on windows.  Fix: unset/clear http.sslbackend   
 `git config --global --unset http.sslbackend`
+
+
+### Containers
+
+- Currently builds off of image produced here: https://github.com/QuantumStudyGroup/container-stacker
