@@ -1,0 +1,45 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.245.2/containers/jupyter-datascience-notebooks
+{
+    "name": "Quantum Computing Container",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "overrideCommand": false,
+    
+    // Forward Jupyter port locally, mark required
+    "forwardPorts": [8888],
+    "portsAttributes": {
+        "8888": {
+            "label": "Jupyter",
+            "requireLocalPort": true,
+            "onAutoForward": "ignore"
+        }
+    },
+    
+    // Configure tool-specific properties.
+    "customizations": {
+        // Configure properties specific to VS Code.
+        "vscode": {
+            // Set *default* container specific settings.json values on container create.
+            "settings": { 
+                "python.defaultInterpreterPath": "/opt/conda/bin/python"
+            },
+            
+            "extensions": [
+                "ms-python.python",
+                "esbenp.prettier-vscode",
+                "ms-toolsai.jupyter"
+            ]
+        }
+    },
+    "settings": {
+        "workbench.colorTheme": "Atom One Dark",
+        "workbench.iconTheme": "material-icon-theme"
+    },
+    "remoteUser": "jovyan",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/home/jovyan/work,type=bind,consistency=cached", 
+    "workspaceFolder": "/home/jovyan/work/",
+    // Use 'postCreateCommand' to run commands after the container is created.
+    "postCreateCommand": "./.devcontainer/postCreateCommand.sh && jupyter server list | sed -n 's/h.*token=\\(.*\\)::.*/\\1/p'"
+}
